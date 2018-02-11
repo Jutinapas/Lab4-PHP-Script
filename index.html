@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>Lab 4: PHP Script</title>
+  <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
+	<link href="lab04.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div class="navbar">
+  <div class="dropdown">
+    <button class="dropbtn">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="myDropdown">
+      <a id='bmi-dropdown'>Body Mass Index (BMI)</a>
+      <a id='bmr-dropdown'>Basal Metabolic Rate (BMR)</a>
+      <a id='cc-dropdown'>Total Cholesterol</a>
+    </div>
+  </div> 
+</div>
+
+<div id="intro">เลือกเมนู</div>
+
+<div class="container">
+
+  <form class="form" id="bmi-form">
+    <h1>โปรแกรมคำนวณดัชนีมวลกาย Body Mass Index (BMI)</h1>
+      <div>
+        <div class="div-input">ส่วนสูง/เซนติเมตร <input id="bmi-height" type="number"></div><br>
+        <div class="div-input">น้ำหนัก/กิโลกรัม <input id="bmi-weight" type="number"></div><br><br>
+        <div class="div-input"><input id="bmi-submit" class="submit-btn" onclick="calBMI()" type="button" value="คำนวณ" style="font-family: 'Kanit', sans-serif;"></div><br>
+        <h3>ดัชนีมวลกายของคุณ</h3>
+        <div id="bmi-result" class="result"></div>
+      </div>
+      
+  </form>
+
+  <form class="form" id="bmr-form">
+    <h1>คำนวณการเผาผลาญพลังงาน Basal Metabolic Rate (BMR)</h1>
+      <div>
+        <div class="div-input">เพศ <input type="radio" name="gender" value="male" checked> ชาย
+        <input type="radio" name="gender" value="female"> หญิง</div><br>
+        <div class="div-input">ส่วนสูง/เซนติเมตร <input id="bmr-height" type="number"></div><br>
+        <div class="div-input">น้ำหนัก/กิโลกรัม <input id="bmr-weight" type="number"></div><br>
+        <div class="div-input">อายุ/ปี <input id="age" type="number"></div><br>
+        <select id="rate" name="rate" style="font-family: 'Kanit', sans-serif;">
+          <option selected="selected" value="0">ไม่ออกกำลังกายหรือออกกำลังกายน้อยมาก</option>
+          <option value="1">ออกกำลังกายน้อยเล่นกีฬา 1-3 วัน/สัปดาห์</option>
+          <option value="2">ออกกำลังกายปานกลางเล่นกีฬา 3-5 วัน/สัปดาห์</option>
+          <option value="3">ออกกำลังกายหนักเล่นกีฬา 6-7 วัน/สัปดาห์</option>
+          <option value="4">ออกกำลังกายหนักมากเป็นนักกีฬา</option>
+        </select><br><br>
+        <div class="div-input"><input class="submit-btn" onclick="calBMR()" type="button" value="คำนวณ" style="font-family: 'Kanit', sans-serif;"></div><br>
+        <div id="bmr-result" class="result">BMR (Basal Metabolic Rate) พลังงานที่จำเป็นพื้นฐานในการมีชีวิต - กิโลแคลอรี่ <br> TDEE (Total Daily Energy Expenditure) พลังงานที่คุณใช้ในแต่ละวัน - กิโลแคลอรี่</div>
+      </div>
+  </form>
+
+  <form class="form" id="tc-form">
+    <h1>คำนวณค่าคอเลสเตอรอลรวม (Total Cholesterol)</h1>
+      <div>
+        <div class="div-input-tc">ไขมันแอลดีแอล (Low density lipoprotein) <input id="ldl" type="number"> </div>mg/dL<br>
+        <div class="div-input-tc">ไขมันเอชดีแอล (High density lipoprotein) <input id="hdl" type="number"> </div>mg/dL<br>
+        <div class="div-input-tc">ไตรกลีเซอไรด์ <input id="tri" type="number"> </div>mg/dL<br>
+        <div class="div-input"><input class="submit-btn" id="tc-submit" onclick="calTC()" type="button" value="คำนวณ" style="font-family: 'Kanit', sans-serif;"></div><br>
+        <h2>ค่าคอเลสเตอรอลรวมของคุณ</h2>
+      <div id="tc-result" class="result"></div>
+      </div>
+      
+  </form>
+
+</div>
+
+<script src="jquery-3.3.1.min.js" charset="utf-8"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
